@@ -1,0 +1,26 @@
+.st0 {
+  fill: #FFFFFF;
+}
+
+#Layer_2 {
+  transform: translate(-44.5px, -19px) scale(0.2);
+}
+
+#stage-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  //background: gainsboro;
+}
+.node{
+  font-weight: bold;
+}
+line.link,circle.connect{
+  stroke: #ea4542;
+  stroke-width: 8px;
+}
+circle.connecting{
+  stroke-dasharray: 0 5000px;
+}
