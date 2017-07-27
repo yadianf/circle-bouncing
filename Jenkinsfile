@@ -1,30 +1,37 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.3.9-jdk-8'
-    }
-    
-  }
+  agent any
+      tools {
+          maven 'Yadian-maven'
+          jdk 'jdk8'
+      }
   stages {
     stage('Message') {
       steps {
         parallel(
           "Message": {
-            echo 'hello world'
-            echo 'ok'
-            sh 'java -version'
-            
+            echo "PATH = ${PATH}"
+            echo "M2_HOME = ${M2_HOME}"
           },
-          "otro": {
-            echo 'otro'
-            
+          "test": {
+            echo 'This is another step'
           }
         )
       }
     }
-    stage('yea') {
+    stage('Clean') {
       steps {
-        echo 'yea'
+            echo 'This is another step'
+
+      }
+    }
+    stage('Compile') {
+      steps {
+       echo 'This is another step'
+      }
+    }
+    stage('Production') {
+      steps {
+       echo 'This is another step'
       }
     }
   }
