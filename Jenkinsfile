@@ -12,6 +12,7 @@ pipeline {
           "Message": {
             echo 'hello world'
             echo 'ok'
+            sh 'java -version'
             
           },
           "otro": {
