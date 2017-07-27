@@ -1,14 +1,24 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.3.9-jdk8'
-    }
-    
-  }
+  agent any
   stages {
-    stage('error') {
+    stage('Message') {
       steps {
-        sh 'mvn --version'
+        parallel(
+          "Message": {
+            echo 'hello world'
+            echo 'ok'
+            
+          },
+          "": {
+            echo 'otro'
+            
+          }
+        )
+      }
+    }
+    stage('') {
+      steps {
+        echo 'yea'
       }
     }
   }
