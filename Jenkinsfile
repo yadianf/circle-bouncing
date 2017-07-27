@@ -1,38 +1,57 @@
 pipeline {
   agent any
-      tools {
-          maven 'Yadian-maven'
-          jdk 'jdk8'
-      }
   stages {
-    stage('Message') {
+    stage('Init') {
+      steps {
+        echo 'Init Build'
+      }
+    }
+    stage('Installing Dependencies') {
+      steps {
+        sh '''npm install
+bower install'''
+      }
+    }
+    stage('Unit Test') {
+      steps {
+        sh 'gulp test'
+      }
+    }
+    stage('Browser Test') {
       steps {
         parallel(
-          "Message": {
-            echo "PATH = ${PATH}"
-            echo "M2_HOME = ${M2_HOME}"
+          "Browser Test": {
+            echo 'To do : using browser stak'
+            
           },
-          "test": {
-            echo 'This is another step'
+          "Chrome": {
+            echo 'Todo: Browser stak'
+            
+          },
+          "Edge": {
+            echo 'Todo: Browser stak'
+            
+          },
+          "Safari": {
+            echo 'Todo: Browser stak'
+            
           }
         )
       }
     }
-    stage('Clean') {
+    stage('Build') {
       steps {
-            echo 'This is another step'
-
+        sh 'gulp build'
       }
     }
-    stage('Compile') {
+    stage('Staging') {
       steps {
-       echo 'This is another step'
+        sh 'echo "deploy in staging"'
       }
     }
-    stage('Production') {
-      steps {
-       echo 'This is another step'
-      }
-    }
+  }
+  tools {
+    maven 'Yadian-maven'
+    jdk 'jdk8'
   }
 }
