@@ -16,9 +16,9 @@ pipeline {
         )
       }
     }
-    stage('yea') {
+    stage('Production') {
       steps {
-        echo 'yea'
+        echo 'success production'
       }
     }
   }
