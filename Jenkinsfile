@@ -39,6 +39,11 @@ bower install'''
         )
       }
     }
+    stage('Report') {
+      steps {
+        junit 'karma_html/*.xml'
+      }
+    }
     stage('Build') {
       steps {
         sh 'gulp build'
@@ -46,7 +51,7 @@ bower install'''
     }
     stage('Staging') {
       steps {
-        sh 'echo "deploy in staging"'
+        echo 'deploy in staging'
       }
     }
   }
