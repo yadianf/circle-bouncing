@@ -9,14 +9,14 @@ pipeline {
             echo 'ok'
             
           },
-          "": {
+          "otro": {
             echo 'otro'
             
           }
         )
       }
     }
-    stage('') {
+    stage('yea') {
       steps {
         echo 'yea'
       }
