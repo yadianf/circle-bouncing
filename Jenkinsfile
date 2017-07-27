@@ -1,14 +1,14 @@
 pipeline {
   agent {
     docker {
-      image 'node'
+      image 'maven:3.3.9-jdk8'
     }
     
   }
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh 'node --version'
+        sh 'mvn --version'
       }
     }
   }
