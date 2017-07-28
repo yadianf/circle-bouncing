@@ -52,6 +52,11 @@ bower install'''
     stage('Staging') {
       steps {
         echo 'deploy in staging'
+        node(label: 'Node') {
+          echo 'hola'
+          echo 'asdasdads'
+        }
+        
       }
     }
   }
